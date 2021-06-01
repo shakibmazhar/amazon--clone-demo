@@ -3,6 +3,7 @@ import '../style/Error.css'
 import {Link} from 'react-router-dom'
 
 const Error = () => {
+    //Error page for handling non existing routes.
     return (
         <div className = 'error_container'>
             <h1 className = 'error_txt'>The page does not exist!</h1>

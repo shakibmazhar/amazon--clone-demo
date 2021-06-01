@@ -1,15 +1,35 @@
 import React from 'react'
 import { useGlobalContext } from '../context'
+import AddIcon from '@material-ui/icons/Add'
+import RemoveIcon from '@material-ui/icons/Remove'
 import '../style/CartItem.css'
 
-const CartItem = ({id, title, image, price, rating}) => {
+const CartItem = ({id, title, image, price, rating, quantity, index}) => {
     
+    //Global context
     const {dispatch} = useGlobalContext()
 
-    const removeFromCart = (id) => {
+    //Function to remove item from cart
+    const removeFromCart = (index) => {
         dispatch({
-            type: 'REMOVE_ITEM',
-            id: id
+            type: "REMOVE_ITEM",
+            index: index
+        })
+    }
+
+    //Function to decrease quantity. 
+    const decreaseQuantity = (index) => {
+        dispatch({
+            type: "DECREASEQUANTITY",
+            index: index
+        })            
+    }
+
+    //Function to add quantity
+    const addQuantity = (index) => {
+        dispatch({
+            type: "ADDQUANTITY",
+            index: index
         })
     }
 
@@ -26,12 +46,27 @@ const CartItem = ({id, title, image, price, rating}) => {
                         return '⭐'
                     })}
                 </p>
-                <button className = 'cart_btn'
-                onClick = {() => {
-                    removeFromCart(id)
-                }}>
-                    Remove from Cart
-                </button>
+                <div className="cart_btns">
+                    <button className = 'cart_btn'
+                    onClick = {() => {
+                        removeFromCart(index)
+                    }}>
+                        Remove from Cart
+                    </button>
+                    <div className="cartItem_quantity">
+
+                        <RemoveIcon className = 'cart_removeBtn'
+                        onClick = {() => {
+                        decreaseQuantity(index)}}/>
+                        
+                        <p className = 'cart_quantityText'>{quantity}</p>
+                        
+                        <AddIcon className = 'cart_addBtn'
+                        onClick = {() => {
+                        addQuantity(index)}}/>
+                    
+                    </div>
+                </div>
             </div>
         </div>
     )

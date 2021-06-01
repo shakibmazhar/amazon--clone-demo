@@ -5,8 +5,8 @@ import CartItem from './CartItem'
 import Subtotal from './Subtotal'
 
 const Checkout = () => {
-
-    const {cart} = useGlobalContext()
+    //Global context. Fetching cart from app state.
+    const {cart} = useGlobalContext()    
 
     return (
         <section className = 'checkout'>
@@ -19,15 +19,17 @@ const Checkout = () => {
                 </h2>
 
                 <div className="cart">
-                    {cart.map((item) => {
-                        return <CartItem 
-                        key = {item.id}
+                    {cart.map((item, index) => (
+                        <CartItem 
+                        key = {index}
+                        index = {index}
                         id = {item.id}
                         title = {item.title}
                         image = {item.image}
                         price = {item.price}
-                        rating = {item.rating} />
-                    })}
+                        rating = {item.rating}
+                        quantity = {item.quantity} />
+                    ))}
                 </div>
             </div>
             <div className="checkout_right">

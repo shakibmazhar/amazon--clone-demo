@@ -4,9 +4,12 @@ import '../style/Product.css'
 
 const Product = ({id, title, image, price, rating}) => {
 
-    const {dispatch} = useGlobalContext()
+    //Global context
+    const {cart, dispatch} = useGlobalContext()
 
+    //Function to add element to cart
     const addToCart = (id, title, image, price, rating) => {
+   
         dispatch({
             type: "ADDTOCART",
             id: id,
@@ -14,7 +17,10 @@ const Product = ({id, title, image, price, rating}) => {
             image: image,
             price: price,
             rating: rating,
-        })
+            quantity: 1
+        })        
+         
+                 
     }
 
     return (

@@ -9,13 +9,36 @@ const reducer = (state, action) => {
                     title: action.title,
                     image: action.image,
                     price: action.price,
-                    rating: action.rating
+                    rating: action.rating,
+                    quantity: action.quantity
                 })
             }
-        case 'REMOVE_ITEM':
+        case "REMOVE_ITEM":
             return{
                 ...state,
-                cart: state.cart.filter((item) => item.id !== action.id)
+                cart: state.cart.filter((item, index) => index !== action.index)
+            }
+        case "DECREASEQUANTITY":
+            return{
+                ...state,
+                cart: state.cart.map((item, index) => {
+                    if(index === action.index){
+                        if(item.quantity > 0){
+                            item.quantity = item.quantity - 1
+                        }
+                    }
+                    return item
+                })
+            }
+        case "ADDQUANTITY":
+            return{
+                ...state,
+                cart: state.cart.map((item, index) => {
+                    if(index === action.index){
+                        item.quantity = item.quantity + 1
+                    }
+                    return item
+                })
             }
         case "TOTALPRICE":
             return{

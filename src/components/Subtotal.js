@@ -4,14 +4,15 @@ import CurrencyFormat from 'react-currency-format'
 import {useGlobalContext} from '../context'
 
 const Subtotal = () => {
-
+    // Global context
     const {cart, totalPrice, dispatch} = useGlobalContext()
 
     let total = 0;
 
+    //Function to calculate total price
     const calculateTotal = () => {
         cart.map((item) => {
-            total = total + item.price   
+            total = total + (item.price * item.quantity)  
             return null 
         })
         dispatch({

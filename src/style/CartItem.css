@@ -11,7 +11,6 @@
   width: 100px;
   align-self: center;
   object-fit: contain;
-  margin-right: 20px;
   padding: 20px;
 }
 
@@ -24,4 +23,49 @@
 
 .title {
   font-size: 20px;
+}
+
+.cart_btns {
+  display: flex;
+  align-items: center;
+}
+
+.cart_btn {
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #f0c14b;
+  width: 150px;
+  align-self: left;
+}
+
+.cartItem_quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart_removeBtn {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  color: #f0c14b;
+}
+
+.cart_addBtn {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  color: #f0c14b;
+}
+
+.cart_quantityText {
+  margin-top: 10px;
+  padding: 5px;
 }

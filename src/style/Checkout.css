@@ -6,7 +6,7 @@
 }
 
 .checkout_left {
-  width: 50vw;
+  min-width: 600px;
   margin-right: 10px;
 }
 
