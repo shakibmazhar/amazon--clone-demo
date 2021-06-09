@@ -2,12 +2,24 @@ import React from 'react'
 import '../style/Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import { useGlobalContext } from '../context';
+import {auth} from '../firebase'
 
 const Header = () => {
 
-    const {cart} = useGlobalContext()
+    const {user, cart} = useGlobalContext()
+
+    const history = useHistory()
+
+    const handleAuth = () => {
+        if(user){
+            auth.signOut()
+        }
+        else{
+            history.push('/login')
+        }
+    }
 
     return (
         <section className = 'header'>
@@ -29,10 +41,12 @@ const Header = () => {
                 {/* Sign In */}
                 <div className = 'header_opts'>
                     <span className = 'header_optsLineOne'>
-                        Guest
+                        {user ? `${user.email}` : 'Guest'}
                     </span>
-                    <span className = 'header_optsLineTwo'>
-                        Sign In
+
+                    <span className = 'header_optsLineTwo_sign'
+                    onClick = {handleAuth}>
+                        {user ? 'Log out' : 'Log in'}
                     </span>
                 </div>
                 {/* Returns & orders */}

@@ -19,3 +19,9 @@
   padding: 10px;
   border-bottom: 1px solid;
 }
+
+.cart_emptyText {
+  padding: 10px;
+  align-self: center;
+  text-align: center;
+}

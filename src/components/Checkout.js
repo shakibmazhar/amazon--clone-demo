@@ -19,7 +19,7 @@ const Checkout = () => {
                 </h2>
 
                 <div className="cart">
-                    {cart.map((item, index) => (
+                    {cart.length>0? cart.map((item, index) => (
                         <CartItem 
                         key = {index}
                         index = {index}
@@ -29,7 +29,10 @@ const Checkout = () => {
                         price = {item.price}
                         rating = {item.rating}
                         quantity = {item.quantity} />
-                    ))}
+                    )) : <h2 className = 'cart_emptyText'>
+                            Your cart is empty
+                        </h2>
+                    }
                 </div>
             </div>
             <div className="checkout_right">

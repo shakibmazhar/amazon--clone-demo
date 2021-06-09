@@ -45,6 +45,11 @@ const reducer = (state, action) => {
                 ...state,
                 totalPrice: action.total
             }
+        case "SETUSER": 
+            return{
+                ...state,
+                user: action.user
+            }
         default:
             return{
                 ...state

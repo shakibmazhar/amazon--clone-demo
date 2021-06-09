@@ -61,6 +61,12 @@
   font-weight: 800;
 }
 
+.header_optsLineTwo_sign {
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
 .header_optsCart {
   display: flex;
   align-items: center;
@@ -74,4 +80,10 @@
 
 .header_cartLink {
   text-decoration: none;
+}
+
+.login_link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
 }

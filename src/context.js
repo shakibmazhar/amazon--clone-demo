@@ -8,6 +8,7 @@ const AppContext = React.createContext()
 
 //Default global state
 const initialState = {
+    user: null,
     products: products,
     cart: [],
     totalPrice: 0,
