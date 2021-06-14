@@ -41,7 +41,7 @@ const Header = () => {
                 {/* Sign In */}
                 <div className = 'header_opts'>
                     <span className = 'header_optsLineOne'>
-                        {user ? `${user.email}` : 'Guest'}
+                        {user ? `${user?.displayName ||user.email}` : 'Guest'}
                     </span>
 
                     <span className = 'header_optsLineTwo_sign'

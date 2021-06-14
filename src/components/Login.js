@@ -24,21 +24,6 @@ const Login = () => {
         ).catch((error) => console.log(error))
     }
 
-    //New account logic
-    const register = (e) => {
-        //Prevent page refresh
-        e.preventDefault()
-        //Create user with email and password
-        auth.createUserWithEmailAndPassword(email, pass).then(
-            (auth) => {
-                console.log(auth)
-                if(auth){
-                    history.push('/')
-                }
-            }
-        ).catch((error) => console.log(error))
-    }
-
     return (
         <div className = 'login'>
             <Link to = '/'>
@@ -73,10 +58,13 @@ const Login = () => {
                     By signing-in you agree to Conditions, Cookies 
                     and all that shenanigans.
                 </p>
-
-                <button 
-                className = 'login_regBtn'
-                onClick = {register}>Create your Amazon Account</button>
+                
+                <Link to = '/register'>
+                    <button 
+                    className = 'login_regBtn'>
+                        Create your Amazon Account
+                    </button>
+                </Link>
             </div>
         </div>
     )

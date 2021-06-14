@@ -8,6 +8,7 @@ import Error from './components/Error'
 import Login from './components/Login'
 import {auth} from './firebase'
 import { useGlobalContext } from './context'
+import Register from './components/Register'
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path = "/checkout">
           <Checkout />
+        </Route>
+        <Route path = "/register">
+          <Register />
         </Route>
         <Route path = "/*">
           <Error />

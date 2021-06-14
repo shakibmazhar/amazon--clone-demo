@@ -6,7 +6,9 @@ import Subtotal from './Subtotal'
 
 const Checkout = () => {
     //Global context. Fetching cart from app state.
-    const {cart} = useGlobalContext()    
+    const {user, cart} = useGlobalContext()    
+
+    console.log(user)
 
     return (
         <section className = 'checkout'>
@@ -15,7 +17,7 @@ const Checkout = () => {
                 alt="" className="checkout_ad" />
 
                 <h2 className = "checkout_title">
-                    Your Cart
+                    {user? `${user?.displayName || user?.email}, your cart` : 'Your Cart'}
                 </h2>
 
                 <div className="cart">
