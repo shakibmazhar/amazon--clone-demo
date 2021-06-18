@@ -1,0 +1,35 @@
+.paymentItems {
+  display: flex;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.item_img {
+  height: 150px;
+  width: 100px;
+  align-self: center;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.items_info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.items_infoQnt {
+  align-self: flex-end;
+}
+
+.items_infoQnt > p {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-weight: 800;
+  background-color: white;
+}

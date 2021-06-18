@@ -2,10 +2,13 @@ import React, {useEffect} from 'react'
 import '../style/Subtotal.css'
 import CurrencyFormat from 'react-currency-format'
 import {useGlobalContext} from '../context'
+import { useHistory } from 'react-router-dom'
 
 const Subtotal = () => {
     // Global context
     const {cart, totalPrice, dispatch} = useGlobalContext()
+
+    const history = useHistory()
 
     let total = 0;
 
@@ -44,7 +47,12 @@ const Subtotal = () => {
             thousandSeparator = {true}
             prefix = {"$"}/>
 
-            <button className = 'checkout_btn'>
+            <button className = 'checkout_btn'
+            onClick = {() => {
+                if(totalPrice > 0){
+                    history.push('/payment')
+                }
+            }}>
                 Proceed to Checkout
             </button>
        </section>

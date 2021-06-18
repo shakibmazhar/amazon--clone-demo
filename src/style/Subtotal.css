@@ -20,6 +20,7 @@
 }
 
 .checkout_btn {
+  cursor: pointer;
   background: #f0c14b;
   border-radius: 5px;
   width: 200px;

@@ -2,7 +2,7 @@
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADDTOCART":
-            return{
+            return {
                 ...state,
                 cart: state.cart.concat({
                     id: action.id,
@@ -10,51 +10,58 @@ const reducer = (state, action) => {
                     image: action.image,
                     price: action.price,
                     rating: action.rating,
-                    quantity: action.quantity
-                })
-            }
+                    quantity: action.quantity,
+                }),
+            };
         case "REMOVE_ITEM":
-            return{
+            return {
                 ...state,
-                cart: state.cart.filter((item, index) => index !== action.index)
-            }
+                cart: state.cart.filter(
+                    (item, index) => index !== action.index
+                ),
+            };
         case "DECREASEQUANTITY":
-            return{
+            return {
                 ...state,
                 cart: state.cart.map((item, index) => {
-                    if(index === action.index){
-                        if(item.quantity > 0){
-                            item.quantity = item.quantity - 1
+                    if (index === action.index) {
+                        if (item.quantity > 0) {
+                            item.quantity = item.quantity - 1;
                         }
                     }
-                    return item
-                })
-            }
+                    return item;
+                }),
+            };
         case "ADDQUANTITY":
-            return{
+            return {
                 ...state,
                 cart: state.cart.map((item, index) => {
-                    if(index === action.index){
-                        item.quantity = item.quantity + 1
+                    if (index === action.index) {
+                        item.quantity = item.quantity + 1;
                     }
-                    return item
-                })
-            }
+                    return item;
+                }),
+            };
         case "TOTALPRICE":
-            return{
+            return {
                 ...state,
-                totalPrice: action.total
-            }
-        case "SETUSER": 
-            return{
+                totalPrice: action.total,
+            };
+        case "SETUSER":
+            return {
                 ...state,
-                user: action.user
-            }
+                user: action.user,
+            };
+        case "EMPTY_CART":
+            return {
+                ...state,
+                cart: [],
+            };
         default:
-            return{
-                ...state
-            }
+            return {
+                ...state,
+            };
     }
-}
+};
 
-export default reducer
+export default reducer;

@@ -8,7 +8,7 @@ const Checkout = () => {
     //Global context. Fetching cart from app state.
     const {user, cart} = useGlobalContext()    
 
-    console.log(user)
+    //console.log(user)
 
     return (
         <section className = 'checkout'>

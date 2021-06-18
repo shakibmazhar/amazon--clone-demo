@@ -10,7 +10,7 @@ const CartItem = ({id, title, image, price, rating, quantity, index}) => {
     const {dispatch} = useGlobalContext()
 
     //Function to remove item from cart
-    const removeFromCart = (index) => {
+    const removeFromCart = () => {
         dispatch({
             type: "REMOVE_ITEM",
             index: index
@@ -18,7 +18,7 @@ const CartItem = ({id, title, image, price, rating, quantity, index}) => {
     }
 
     //Function to decrease quantity. 
-    const decreaseQuantity = (index) => {
+    const decreaseQuantity = () => {
         dispatch({
             type: "DECREASEQUANTITY",
             index: index
@@ -26,7 +26,7 @@ const CartItem = ({id, title, image, price, rating, quantity, index}) => {
     }
 
     //Function to add quantity
-    const addQuantity = (index) => {
+    const addQuantity = () => {
         dispatch({
             type: "ADDQUANTITY",
             index: index
@@ -47,23 +47,23 @@ const CartItem = ({id, title, image, price, rating, quantity, index}) => {
                     })}
                 </p>
                 <div className="cart_btns">
+                    {/* Remove item button */}
                     <button className = 'cart_btn'
-                    onClick = {() => {
-                        removeFromCart(index)
-                    }}>
+                    onClick = {removeFromCart}>
                         Remove from Cart
                     </button>
                     <div className="cartItem_quantity">
-
+                        
+                        {/* Decrease item button */}
                         <RemoveIcon className = 'cart_removeBtn'
-                        onClick = {() => {
-                        decreaseQuantity(index)}}/>
-                        
+                        onClick = {decreaseQuantity}/>
+
+                        {/* Quantity indicator */}
                         <p className = 'cart_quantityText'>{quantity}</p>
-                        
+
+                        {/* Increase item button */}
                         <AddIcon className = 'cart_addBtn'
-                        onClick = {() => {
-                        addQuantity(index)}}/>
+                        onClick = {addQuantity}/>
                     
                     </div>
                 </div>
